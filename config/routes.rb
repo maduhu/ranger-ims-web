@@ -1,9 +1,9 @@
 RangerImsWww::Application.routes.draw do
   get "root/index"
 
-  get "login/show"
+  match "login/show"
 
-  get "login/do"
+  post "login/do"
 
   resources :incidents
 

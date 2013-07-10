@@ -1,2 +1,14 @@
-<h1>Login#show</h1>
-<p>Find me in app/views/login/show.html.erb</p>
+
+<div class="container">
+
+  <form class="form-signin" method="post" action="/login/do">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" class="input-block-level" placeholder="username" name="user">
+    <input type="password" class="input-block-level" placeholder="password" name="pass">
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+  </form>
+
+</div> <!-- /container -->
