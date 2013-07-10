@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  servernum: 1
+  etag: MyString
+  source: MyText
+
+two:
+  servernum: 1
+  etag: MyString
+  source: MyText

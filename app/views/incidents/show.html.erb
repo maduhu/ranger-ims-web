@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Servernum:</b>
+  <%= @incident.servernum %>
+</p>
+
+<p>
+  <b>Etag:</b>
+  <%= @incident.etag %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @incident.source %>
+</p>
+
+
+<%= link_to 'Edit', edit_incident_path(@incident) %> |
+<%= link_to 'Back', incidents_path %>
