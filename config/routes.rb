@@ -5,6 +5,8 @@ RangerImsWww::Application.routes.draw do
 
   post "login/do"
 
+  match "logout" => "login#logout"
+
   resources :incidents
 
 

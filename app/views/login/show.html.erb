@@ -1,6 +1,11 @@
 
 <div class="container">
-
+  <% if flash[:alert] %>
+  <div class="alert alert-error">
+    <h4>error</h4>
+    attempted to verify your credentials and got: <%= flash[:alert] %>
+  </div>
+  <% end %>
   <form class="form-signin" method="post" action="/login/do">
     <h2 class="form-signin-heading">Please sign in</h2>
     <input type="text" class="input-block-level" placeholder="username" name="user">
@@ -8,7 +13,7 @@
     <label class="checkbox">
       <input type="checkbox" value="remember-me"> Remember me
     </label>
-    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+    <button class="btn btn-large btn-primary" type="submit">Operate!</button>
   </form>
 
 </div> <!-- /container -->
