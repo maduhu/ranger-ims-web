@@ -1,2 +1,39 @@
-<h1>Root#index</h1>
-<p>Find me in app/views/root/index.html.erb</p>
+
+
+<table class="table table-hover table-bordered table-condensed table-striped">
+  <caption>Incidents</caption>
+  <tr>
+    <th>#</th>
+    <th>Priority</th>
+    <th>Opened</th>
+    <th>Dispatched</th>
+    <th>On Scence</th>
+    <th>Rangers</th>
+    <th>Location</th>
+    <th>Type</th>
+    <th>Closed</th>
+    <th>Description</th>
+  </tr>
+
+<% @incidents.reverse.each do | incident | %>
+      <tr>
+        <td><a href="incidents/<%=incident.servernum%>"><%= incident.servernum %></a></td>
+        <td><%= display_priority(incident) %></td>
+        <td><%= display_dt(incident, :created) %></td>
+        <td><%= display_dt(incident, :dispatched) %></td>
+        <td><%= display_dt(incident, :on_scene) %></td>
+        <td><%= display_rangers(incident) %></td>
+        <td><%= display_location(incident).html_safe %></td>
+        <td><%= display_incident_types incident %></td>
+        <td><%= display_dt(incident, :closed) %></td>
+        <td><%= incident.description %></td>
+      </tr>
+
+
+
+
+
+
+
+<% end %>
+</table>
