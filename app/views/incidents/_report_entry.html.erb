@@ -1,0 +1,11 @@
+<div class="row-fluid well well-small">
+  <div class="span3">
+    <p class="muted"><%= report_entry[:author] %><p>
+    <p class="muted">
+    <%= display_dt2(report_entry,:created) %><br/> (<%= display_time_distance(report_entry, :created) %> ago)
+    </p>
+  </div>
+  <div class="span9">
+    <%= report_entry[:text] %>
+  </div>
+</div>

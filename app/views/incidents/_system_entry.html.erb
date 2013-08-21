@@ -1,0 +1,13 @@
+<div class="row-fluid">
+  <div class="span3">
+    <p class="muted"><%= system_entry[:author] %><p>
+    <p class="muted">
+      <%= display_dt2(system_entry,:created) %><br/> (<%= display_time_distance(system_entry, :created) %> ago)
+    </p>
+  </div>
+  <div class="span9">
+    <p class="muted">
+      <%= system_entry[:text] %>
+    </p>
+  </div>
+</div>
