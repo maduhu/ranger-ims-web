@@ -5,12 +5,30 @@
     <p class="lead">
       <%= display_name @incident %>
     </p>
+    <dl class="dl-horizontal">
+      <dt>Incident Number</dt>
+      <dd><%= @incident[:number]%></dd>
+      <dt>Priority</dt>
+      <dd><%= @incident[:priority]%></dd>
+      <dt>Location</dt>
+      <dd><%= display_location_show(@incident) %></dd>
+    </dl>
     <div class="row-fluid">
       <div class="span8">
-        ranger names
+        Ranger Names
+        <ul class="unstyled well well-small">
+          <% @incident[:ranger_handles].each do | handle | %>
+            <li><%= handle %></li>
+          <% end %>
+        </ul>
       </div>
       <div class="span4">
-        incident type
+        Incident Type
+        <ul class="unstyled well well-small"
+        <% @incident[:incident_types].each do | itype | %>
+            <li><%= itype %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -53,16 +71,8 @@
   <% end # do %>
 </div>
 
-<div class="row9">
+<!-- <div class="row9">
   <pre>
   <%= @incident.awesome_inspect %>
   </pre>
-</div>
-
-
-
-
-
-<div cl
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
+</div> -->

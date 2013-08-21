@@ -8,7 +8,10 @@ class IncidentsController < ApplicationController
   # GET /incidents/1
   # GET /incidents/1.json
   def show
-    @incident = Incident.retrieve(params[:id], server_auth)
+    incident, @etag = Incident.retrieve(params[:id], server_auth)
+    @incident = JSON.parse(incident).with_indifferent_access
+    logger.debug "incident record #{@incident}"
+
   end
 
   # GET /incidents/new
