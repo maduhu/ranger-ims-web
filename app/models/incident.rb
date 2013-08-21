@@ -33,7 +33,7 @@ class Incident < ActiveRecord::Base
       if options.include? :etag
         [result.body, result.headers["etag"]]
       else
-        result.body
+        [result.body, ""]
       end
     end
   end
