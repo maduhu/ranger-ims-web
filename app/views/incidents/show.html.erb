@@ -1,20 +1,68 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Servernum:</b>
-  <%= @incident.servernum %>
-</p>
-
-<p>
-  <b>Etag:</b>
-  <%= @incident.etag %>
-</p>
-
-<p>
-  <b>Source:</b>
-  <%= @incident.source %>
-</p>
 
 
+<div class="row-fluid">
+  <div class="span6">
+    <p class="lead">
+      <%= display_name @incident %>
+    </p>
+    <div class="row-fluid">
+      <div class="span8">
+        ranger names
+      </div>
+      <div class="span4">
+        incident type
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <p class="lead"><%= display_status @incident %><p>
+    <table class="table">
+      <tr>
+        <td>Opened</td><td><%= display_dt2(@incident, :created)%></td>
+      </tr>
+      <tr>
+        <td>Dispatched</td><td><%= display_dt2(@incident, :dispatched)%></td>
+      </tr>
+      <tr>
+        <td>On Scene</td><td><%= display_dt2(@incident, :on_scene)%></td>
+      </tr>
+      <tr>
+        <td>Closed</td><td><%= display_dt2(@incident, :closed)%></td>
+      </tr>
+    </table>
+    <p>
+      <a href="#" class="btn btn-block " type="button">Close Incident</a>
+      <a href="#" class="btn btn-block " type="button">Set On Scene</a>
+      <a href="#" class="btn btn-block " type="button">Set Dispatched</a>
+      <a href="#" class="btn btn-block btn-warning" type="button">Re-Open Incident</a>
+    </p>
+  </div>
+
+
+</div>
+<div class="row-fluid">
+  <p>
+    Incident Report
+  </p>
+  <% @incident[:report_entries].each do | entry |
+    if entry[:system_entry] %>
+      <%= render :partial => "system_entry", :object => entry %>
+  <% else %>
+      <%= render :partial => "report_entry", :object => entry %>
+  <% end # if %>
+  <% end # do %>
+</div>
+
+<div class="row9">
+  <pre>
+  <%= @incident.awesome_inspect %>
+  </pre>
+</div>
+
+
+
+
+
+<div cl
 <%= link_to 'Edit', edit_incident_path(@incident) %> |
 <%= link_to 'Back', incidents_path %>
